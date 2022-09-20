@@ -47,6 +47,8 @@ int main() {
 
     bool condicao = true;
     int lugares[7][10] = {0};
+    float soma;
+    float valorArrecadadoCinema = 0;
 
     for (int i = 1; i < 7; i++) {
         for (int j = 1; j < 10; j++) {
@@ -95,6 +97,16 @@ int main() {
                         cout << endl;
                         cout << "Agora escolha a fileira (1 ao 10): ";
                         cin >> fileira;
+
+                        while (lugares[coluna - 1][fileira -1] != 0) {
+                            cout << "Este lugar já está ocupado, tente outro!" << endl;
+                            cout << "Informe a coluna (1 a 7): ";
+                            cin >> coluna;
+                            cout << endl;
+                            cout << "Agora escolha a fileira (1 ao 10): ";
+                            cin >> fileira;
+                        }
+                        
                         lugares[coluna - 1][fileira -1] = sort;
                     }
                 }
@@ -118,9 +130,17 @@ int main() {
 
                 cout << "Certo " << nome << ". Sua ficha é a de número: " << sort << "." << endl;
                 cout << "------------------------------------" << endl;
+
+                valorArrecadadoCinema = valorEntrada * quantidade;
+                soma = soma + valorArrecadadoCinema;
+                cout << "Valor arrecadado pelo cinema: R$" << soma << " reais." << endl;
+                cout << "------------------------------------" << endl;
             }
         }
     }
+
+
+
     
     return 0;
 }
